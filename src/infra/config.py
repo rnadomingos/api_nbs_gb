@@ -22,8 +22,6 @@ class Settings(BaseSettings):
     POSTGRES_PORT: int = 5432 
     POSTGRES_DB: str     
 
-
-
     @computed_field
     @property
     def server_host(self) -> str:
