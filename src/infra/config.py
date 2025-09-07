@@ -29,7 +29,7 @@ class Settings(BaseSettings):
     
     @computed_field
     @property
-    def SQLALCHEMY_DATABASE_URI(self) -> str | PostgresDsn:
+    def SQLALCHEMY_POSTGRES_URL(self) -> str | PostgresDsn:
         return MultiHostUrl.build(
             scheme=self.POSTGRES_SCHEMA,
             username=self.POSTGRES_USER,
