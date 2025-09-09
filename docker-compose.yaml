@@ -6,9 +6,9 @@ services:
         - postgres_data:/var/lib/postgresql/data
         - ./files:/files
       environment:
-        POSTGRES_DB: api_nbs_gb
-        POSTGRES_USER: gb_user
-        POSTGRES_PASSWORD: 7iVLJ9ch6YU
+        POSTGRES_DB: ${POSTGRES_DB}
+        POSTGRES_USER: ${POSTGRES_USER}
+        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       ports: 
         - "5433:5432"
       networks:
@@ -18,8 +18,8 @@ services:
       container_name: pgadmin
       image: dpage/pgadmin4
       environment: 
-        PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
-        PGADMIN_DEFAULT_PASSWORD: 7iVLJ9ch6YU
+        PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+        PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD} 
         PGADMIN_LISTEN_PORT: 5050
         PGADMIN_CONFIG_SERVER_MODE: 'False'
       volumes:
@@ -38,7 +38,7 @@ services:
       volumes: 
         - ./:/app
       environment:
-        DATABASE_URL: postgresql://gb_user:7iVLJ9ch6YU@postgres/api_nbs_gb
+        DATABASE_URL: ${DATABASE_URL}
       ports:
         - "8000:8000"
       depends_on: 
