@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from src.infra.database import Base, engine 
+from infra.databases.postgres import Base, engine 
 from src.routes.router import router 
 
 

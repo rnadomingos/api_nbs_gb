@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session
 from jose import JWTError, jwt
 from pydantic import ValidationError
 
-from src.infra.database import sessionLocal
+from infra.databases.postgres import sessionLocal
 from src.infra.config import settings
 from src.data.schemas import TokenPayload
 from src.data.models import User

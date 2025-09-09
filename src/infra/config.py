@@ -60,3 +60,6 @@ class Settings(BaseSettings):
     @property
     def SQLALCHEMY_ORACLE_DRIVER(self) -> str:
         return f"{self.ORACLE_DRIVER}"
+
+
+settings = Settings
