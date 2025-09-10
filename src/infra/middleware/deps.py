@@ -6,9 +6,9 @@ from sqlalchemy.orm import Session
 from jose import JWTError, jwt
 from pydantic import ValidationError
 
-from infra.databases.postgres import sessionLocal
+from src.infra.databases.postgres import sessionLocal
 from src.infra.config import settings
-from src.data.schemas import TokenPayload
+from src.data.schemas.user_schemas import TokenPayload
 from src.data.models import User
 
 oauth2 = OAuth2PasswordBearer(tokenUrl="login")

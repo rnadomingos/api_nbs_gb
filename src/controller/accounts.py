@@ -1,7 +1,8 @@
 from sqlalchemy.exc import ArgumentError
 from sqlalchemy.orm import Session
 
-from src.data import models, schemas
+from src.data.schemas import user_schemas
+from src.data import models
 from src.infra.security import get_password_hash, verify_password
 
 def get_user(db: Session, username: str):
@@ -22,7 +23,7 @@ def get_users(
     print("get_users result:", users)
     return users
 
-def create_user(db: Session, user: schemas.UserCreate):
+def create_user(db: Session, user: user_schemas.UserCreate):
     db_user = models.User(
         username = user.username,
         password = get_password_hash(user.password),

@@ -1,5 +1,5 @@
 from sqlalchemy import Column, Boolean, Integer, String
-from infra.databases.postgres import Base
+from src.infra.databases.postgres import Base
 
 class User(Base):
 
