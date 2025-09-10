@@ -5,7 +5,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordRequestForm
 
 from src.infra.middleware.deps import SessionDep, CurrentUser
-from src.data.schemas import Token, User, UserCreate
+from src.data.schemas.user_schemas import Token, User, UserCreate
 from src.infra.config import settings
 from src.controller import accounts
 from src.infra import security
