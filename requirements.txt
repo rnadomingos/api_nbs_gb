@@ -4,11 +4,13 @@ bcrypt==3.2.2
 cffi==1.17.1
 click==8.2.1
 colorama==0.4.6
+cryptography==45.0.7
 ecdsa==0.19.1
 fastapi==0.116.1
 greenlet==3.2.4
 h11==0.16.0
 idna==3.10
+oracledb==3.3.0
 passlib==1.7.4
 psycopg==3.2.9
 psycopg-binary==3.2.9
