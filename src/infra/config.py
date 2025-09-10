@@ -62,4 +62,4 @@ class Settings(BaseSettings):
         return f"{self.ORACLE_DRIVER}"
 
 
-settings = Settings
+settings = Settings() # type: ignore 
