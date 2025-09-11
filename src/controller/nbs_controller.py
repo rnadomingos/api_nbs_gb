@@ -5,6 +5,7 @@ from sqlalchemy.exc import SQLAlchemyError
 
 from src.data.sql.sql_vehicle_sold import stmt_vehicle_sold
 from src.data.sql.sql_vehicle_delivered import stmt_vehicle_delivered
+from src.data.sql.sql_scheduled_review import stmt_scheduled_review
 #from src.infra.databases.oracle_nbs import engine
 
 def get_nbs_vehicle_sold(db: Session, vin: str, cod_client: int):
@@ -39,7 +40,23 @@ def get_nbs_vehicle_delivered(db: Session, vin: str, cod_client: int):
 
     try:
         result = db.execute(stmt_vehicle_delivered, {"vin": vin, "cod_client": cod_client})
-        rows = result.mappings().first()  # retorna lista de dicionários
+        rows = result.mappings().first()
+        return rows       
+       
+    except SQLAlchemyError as e:
+            print("Error loading data:")
+            print(e.__class__.__name__, "-", e._message)
+            raise
+    
+def get_nbs_scheduled_review(db: Session, vin: str):
+
+    if not vin:
+         raise ArgumentError("Must provide vehicle VIN.")
+    
+    try:
+        result = db.execute(stmt_scheduled_review, { "vin": vin })
+        rows = result.mappings().first()
+        print('Row: ', rows)
         return rows       
        
     except SQLAlchemyError as e:
