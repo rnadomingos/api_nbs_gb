@@ -18,6 +18,9 @@ async def login(
     session: SessionDep,
     form_data: Annotated[OAuth2PasswordRequestForm,Depends()]
 ) -> Token:
+    """
+    Route to get token.
+    """
     
     user = accounts.authenticate(
         db=session, username=form_data.username, password=form_data.password
@@ -57,7 +60,7 @@ async def create_user(current_user: CurrentUser, session: SessionDep, user: User
 @router.get("/users", response_model=list[User], tags=["Users"])
 async def read_users(current_user: CurrentUser, session: SessionDep):
     """
-    route to list users. 
+    Route to list users. 
     To list, the user must be admin. 
     """
     if not current_user.is_admin: # type: ignore
