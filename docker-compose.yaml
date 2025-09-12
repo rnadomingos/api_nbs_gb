@@ -2,7 +2,7 @@ services:
     db:
       image: postgres:latest
       mem_limit: 256m
-      cpus: 0.5
+      #cpus: 0.5
       volumes: 
         - postgresql_bin:/usr/lib/postgresql
         - postgres_data:/var/lib/postgresql/data
@@ -40,7 +40,7 @@ services:
         context: .
         dockerfile: Dockerfile
       mem_limit: 256m
-      cpus: 0.5      
+      #cpus: 0.5      
       volumes: 
         - ./:/app
       environment:
