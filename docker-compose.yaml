@@ -16,25 +16,25 @@ services:
       networks:
         - gbnetwork
 
-    pgadmin:
-      container_name: pgadmin
-      image: dpage/pgadmin4
-      mem_limit: 256m
-      cpus: 0.5
-      environment: 
-        PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
-        PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD} 
-        PGADMIN_LISTEN_PORT: 5050
-        PGADMIN_CONFIG_SERVER_MODE: 'False'
-      volumes:
-        - postgresql_bin:/usr/lib/postgresql
-        - pgadmin_root_prefs:/root/.pgadmin
-        - pgadmin_working_dir:/var/lib/pgadmin
-        - ./files:/files
-      ports:
-        - 5050:5050
-      networks:
-        - gbnetwork
+    # pgadmin:
+    #   container_name: pgadmin
+    #   image: dpage/pgadmin4
+    #   mem_limit: 256m
+    #   cpus: 0.5
+    #   environment: 
+    #     PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+    #     PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD} 
+    #     PGADMIN_LISTEN_PORT: 5050
+    #     PGADMIN_CONFIG_SERVER_MODE: 'False'
+    #   volumes:
+    #     - postgresql_bin:/usr/lib/postgresql
+    #     - pgadmin_root_prefs:/root/.pgadmin
+    #     - pgadmin_working_dir:/var/lib/pgadmin
+    #     - ./files:/files
+    #   ports:
+    #     - 5050:5050
+    #   networks:
+    #     - gbnetwork
     api:
       build: 
         context: .
