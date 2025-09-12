@@ -9,9 +9,9 @@ app = FastAPI(
     description="Esta API retorna informações de veículos, entregas e agendamentos de serviço.",
     version="1.0.0",
     servers=[
-        {"url": "http://127.0.0.1:8050", "description": "Servidor Dev"},
         {"url": "http://192.168.16.28:8050", "description": "Servidor Local"},
         {"url": "http://api.grandbrasil.com.br:8050", "description": "Servidor Produção"},
+        {"url": "http://127.0.0.1:8050", "description": "Servidor Dev"},
     ],
     contact={
         "name": "Tiveo Tecnologia",
