@@ -19,7 +19,7 @@ class VehicleRequest(BaseModel):
     )
            
 class VehicleSoldResponse(BaseModel):
-    vendido: bool
+    vendido: str
 
     model_config = ConfigDict(
         from_attributes=True,
