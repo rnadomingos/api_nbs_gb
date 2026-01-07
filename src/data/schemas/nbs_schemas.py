@@ -1,4 +1,5 @@
 from datetime import date
+from typing import Optional
 from pydantic import BaseModel, ConfigDict
 
 
@@ -19,7 +20,7 @@ class VehicleRequest(BaseModel):
     )
            
 class VehicleSoldResponse(BaseModel):
-    vendido: str
+    vendido: Optional[str] = None
 
     model_config = ConfigDict(
         from_attributes=True,
@@ -33,7 +34,7 @@ class VehicleSoldResponse(BaseModel):
     )
 
 class VehicleDeliveredResponse(BaseModel):
-    data_entrega: date
+    data_entrega: Optional[date] = None
     model_config = ConfigDict(
         from_attributes=True,
         json_schema_extra={
@@ -60,13 +61,28 @@ class ScheduledReviewRequest(BaseModel):
     )    
 
 class ScheduledReviewResponse(BaseModel):
-    revisao_agendada: bool
+    revisao_agendada: Optional[bool] = None
     model_config = ConfigDict(
         from_attributes=True,
         json_schema_extra={
             "examples": [
                 {
                     "revisao_agendada": "S",
+                }
+            ]
+        }
+    )        
+
+class VehicleSoldBySaleDateRequest(BaseModel):
+    sale_date_ini: str
+    sale_date_end: str
+    model_config = ConfigDict(
+        from_attributes=True,
+        json_schema_extra={
+            "examples": [
+                {
+                    "sale_date_ini": "01012025",
+                    "sale_date_end": "19122025"
                 }
             ]
         }
