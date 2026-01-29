@@ -2,7 +2,7 @@ from sqlalchemy import text
 
 stmt_vehicle_sold = text(
   """
-  SELECT nvl(frota.vendido,'N') as produto_vendido_cliente, frota.* FROM
+  SELECT nvl(frota.vendido,'N') as vendido FROM
          ( SELECT cfx.cod_cliente,
                   cfx.chassi,
                   cfx.vendido,
